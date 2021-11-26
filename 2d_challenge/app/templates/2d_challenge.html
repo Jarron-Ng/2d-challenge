@@ -1,19 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <h1> {{ message }} </h1>
+<style>
+body {
+  background-color: linen;
+}
+h1 {
+  color: tomato;
+  margin-left: 0px;
+}
+</style>
+    <title>Prediction app</title>
+    <h1>Welcome to our COVID prediction app</h1>
 </head>
 <body>
-    <form action="/" method = "POST">
+    <h2>This app requires you to fill in several inputs in order to get your prediction</h2>
+    <p>This app takes in 5 different values and will attempt to predict the number of COVID-19 cases for a period of time</p>
+    <h3>Below are the description of the required inputs</h3>
+    <p><b style="color:Tomato;">Average Temperature</b> in Farenheit (Average temperature of the country in that day)</p>
+    <!--
+    <p>You may convert degrees to Farenheit here</p>
+    <form action="" method = "POST">
+        <p>Enter a value in degrees: <input type = "text" name="a" /><input type = "hidden" value = "submit" /></p>
+    </form>
+    {% if degrees %}
+        <p>The temperature in Farenheit is {{ degrees }} </p>
+    {% endif %}
+    -->
+    <p ><b style="color:Tomato;">Population density/km^2</b> (Population density is the average number of individuals in a population per unit of area)</p>
+    <p><a href = "https://worldpopulationreview.com/country-rankings/countries-by-density">Click here</a> to find the population density of your country</p>
+    <p><b style="color:Tomato;">Stringency Index</b> (Stringency Index is a measure based on 9 response indicators including school closures,
+        workplace closures, and travel bans, rescaled to a value from 0 to 100, with 100 being the most strict)</p>
+    <p><a href="https://ourworldindata.org/grapher/covid-stringency-index?time=2021-11-24">Click here</a> to find the stringency index for your country</p>
+    <p><b style="color:Tomato;">Median Age</b> (Median age of the population)</p>
+    <p><a href = "https://worldpopulationreview.com/country-rankings/median-age">Click here</a> to find out the median age for your country</p>
+    <p><b style="color:Tomato;">GDP per capita</b> (Gross domestic product at purchasing power parity)</p>
+    <p><a href = "https://www.worldometers.info/gdp/gdp-by-country/">Click here</a> to find the GDP for your country</p>
+
+    <b>{{ message }}</b>
+    <form action="" method = "POST">
         <p>Average Temperature <input type = "text" name = "1" /></p>
         <p>Population Density <input type = "text" name = "2" /></p>
         <p>Stringency Index <input type = "text" name = "3" /></p>
         <p>Median Age <input type = "text" name = "4" /></p>
         <p>GDP per capita <input type = "text" name = "5" /></p>
-        <p><input type = "submit" value = "submit" /></p>
+        <p><input type = "submit" value = "Submit" /></p>
     </form>
-    <h1>{{ output }}</h1>
+    {% if output %}
+        <h2>The predicted number of new cases for the day is: {{ output }}</h2>
+    {% endif %}
 </body>
 </html>
